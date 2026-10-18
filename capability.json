@@ -1,0 +1,19 @@
+{
+  "source": "youtube_download",
+  "name": "YouTube Download to Cloud Storage",
+  "sample": {
+    "video_id": "dQw4w9WgXcQ",
+    "download_type": "audio",
+    "output_format": "m4a"
+  },
+  "inputs": "submit: video_id, optional format/quality/clip fields; reads: job_id. Storage is server configuration.",
+  "outputs": "submit: id/status receipt; reads: job lifecycle; completed result: output JSON delivery manifest",
+  "limits": "Paid asynchronous job. Requires customer storage. Save the receipt; never submit again to poll. Result JSON expires after 24 hours; media retention depends on storage.",
+  "outputExample": {
+    "id": "job_example",
+    "status": "pending",
+    "source": "youtube_download"
+  },
+  "repository": "flashdata-youtube-download-action",
+  "action_name": "YouTube Cloud Delivery - FlashData"
+}

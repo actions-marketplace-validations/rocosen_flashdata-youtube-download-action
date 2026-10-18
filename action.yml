@@ -1,0 +1,51 @@
+name: YouTube Cloud Delivery - FlashData
+description: Submit an authorized media delivery to your own cloud storage, or
+  recover its status and JSON delivery manifest using the saved job ID.
+author: FlashData
+branding:
+  icon: download-cloud
+  color: blue
+inputs:
+  api-key:
+    description: FlashData API Key. Pass secrets.FLASHDATA_API_KEY; requests use
+      paid Credits.
+    required: true
+  video-id:
+    description: 11-character YouTube video ID.
+    required: false
+  options-json:
+    description: Optional JSON object with only source-specific options listed in
+      the README. Never include credentials here.
+    required: false
+  operation:
+    description: status or result reads a saved job; submit creates one paid job.
+    default: status
+  job-id:
+    description: Saved job ID for status/result. Do not pass submission inputs when
+      resuming.
+  allow-submit:
+    description: Must be exactly true to submit a new paid storage write.
+    default: "false"
+  storage-json:
+    description: "For submit only: customer storage JSON from a GitHub Actions secret."
+outputs:
+  artifact-directory:
+    description: Absolute directory with response.json, records.jsonl and manifest.json.
+  results-file:
+    description: Absolute path to the original response JSON (sanitized lifecycle
+      fields for download jobs).
+  records-file:
+    description: Absolute path to JSONL records for downstream steps. Empty file for
+      an empty result.
+  result-count:
+    description: Number of exported records; not the requested result count.
+  source:
+    description: The fixed FlashData source used by this action.
+  job-id:
+    description: Persist this receipt and reuse it for status/result.
+  job-status:
+    description: Current lifecycle status. A successful action does not mean the job
+      has completed.
+runs:
+  using: node24
+  main: dist/index.cjs
