@@ -28,7 +28,7 @@ jobs:
       - name: Submit an authorized media delivery to your own cloud storage, or recover
           its status and JSON delivery manifest using the saved job ID.
         id: data
-        uses: rocosen/flashdata-youtube-download-action@v0.1.0
+        uses: rocosen/flashdata-youtube-download-action@v0.1.1
         with:
           api-key: ${{ secrets.FLASHDATA_API_KEY }}
           operation: result
@@ -82,7 +82,7 @@ Empty results produce an empty JSONL file and result-count 0. Missing fields sta
 The default operation is `status`. The example above only reads an existing job. To create a new paid delivery, explicitly use:
 
 ```yaml
-- uses: rocosen/flashdata-youtube-download-action@v0.1.0
+- uses: rocosen/flashdata-youtube-download-action@v0.1.1
   id: submit
   with:
     api-key: ${{ secrets.FLASHDATA_API_KEY }}

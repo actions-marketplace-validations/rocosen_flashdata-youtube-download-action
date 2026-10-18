@@ -1,6 +1,6 @@
 name: YouTube Cloud Delivery - FlashData
-description: Submit an authorized media delivery to your own cloud storage, or
-  recover its status and JSON delivery manifest using the saved job ID.
+description: Deliver authorized YouTube media to your cloud storage, or read job
+  status and manifests using a saved job ID.
 author: FlashData
 branding:
   icon: download-cloud
